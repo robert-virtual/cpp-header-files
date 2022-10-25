@@ -1,0 +1,51 @@
+{
+    "tasks": [
+        {
+            "label": "compile",
+            "command": "g++",
+            "args": [
+                "-c",
+                "src/*.cpp",
+                "-Iinclude",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+        {
+            "label": "build",
+            "command": "g++",
+            "args": [
+                "*.o",
+                "-o",
+                "${workspaceFolder}\\bin\\debug\\main.exe",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+        {
+            "type": "cppbuild",
+            "label": "run",
+            "command": "start",
+            "args": [
+                "${workspaceFolder}\\bin\\debug\\main.exe",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn":["compile","build"]
+        }
+    ],
+    "version": "2.0.0"
+}
